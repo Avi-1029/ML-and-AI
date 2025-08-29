@@ -3,9 +3,17 @@ data = pd.read_csv(r"C:\Users\Biju\Desktop\Jetlearn\ML and AI\Datasets\admission
 print(data.info())
 print(data.head(5))
 
+print(data["admit"].value_counts())
+
 #defining features and target:
 X = data[["gre","gpa","rank"]]
 y = data["admit"]
+
+#Sampling:
+from imblearn.under_sampling import RandomUnderSampler
+sampler = RandomUnderSampler(sampling_strategy="majority", random_state=24)
+X, y = sampler.fit_resample(X, y)
+print(y.value_counts())
 
 #scaling:
 from sklearn.preprocessing import MinMaxScaler
