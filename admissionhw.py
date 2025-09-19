@@ -38,3 +38,18 @@ print(confusion_matrix(ytest, prediction))
 
 from sklearn.metrics import classification_report
 print(classification_report(ytest, prediction))
+
+
+#logistic regression model:
+from sklearn.neighbors import KNeighborsClassifier
+kmodel = KNeighborsClassifier(6)
+kmodel.fit(xtrain,ytrain)
+predic = kmodel.predict(xtest)
+print (predic)
+
+from sklearn.metrics import confusion_matrix
+print(confusion_matrix(ytest, predic))
+
+from sklearn.metrics import classification_report
+print(classification_report(ytest, predic))
+
